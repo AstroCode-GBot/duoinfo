@@ -7,3 +7,4 @@ cachetools==5.3.3
 requests
 Pillow
 flask[async]
+gunicorn==23.0.0
