@@ -26,10 +26,10 @@ class Config:
     MAIN_IV = base64.b64decode(os.environ.get("MAIN_IV", "Nm95WkRyMjJFM3ljaGpNJQ=="))
     LOGIN_KEY = bytes.fromhex("32656534343831396539623435393838343531343130363762323831363231383734643064356437616639643866376530306331653534373135623764316533")
     
-    CLIENT_VERSION = "1.123.1"
+    CLIENT_VERSION = "1.126.1"
     CLIENT_VERSION_CODE = "2019120270"
     UNITY_VERSION = "2018.4.11f1"
-    RELEASE_VERSION = "OB53"
+    RELEASE_VERSION = "OB54"
     MSDK_VERSION = "5.5.2P3"
     USER_AGENT_MODEL = "ASUS_Z01QD"
     ANDROID_OS_VERSION = "Android 10"
@@ -94,8 +94,8 @@ def login_process_guest(uid, password):
         if 'access_token' not in data:
             return None
         access_token, open_id = data['access_token'], data['open_id']
-        url = "https://loginbp.ggblueshark.com/MajorLogin"
-        host = "loginbp.ggblueshark.com"
+        url = "https://loginbp.ggpolarbear.com/MajorLogin"
+        host = "loginbp.ggpolarbear.com"
         lang = Config.REGION_LANG.get("BD", "en")
         binary_head = b'\x1a\x132025-08-30 05:19:21"\tfree fire(\x01:\x081.120.13B2Android OS 9 / API-28 (PI/rel.cjw.20220518.114133)J\x08HandheldR\nATM MobilsZ\x04WIFI`\xb6\nh\xee\x05r\x03300z\x1fARMv7 VFPv3 NEON VMH | 2400 | 2\x80\x01\xc9\x0f\x8a\x01\x0fAdreno (TM) 640\x92\x01\rOpenGL ES 3.2\x9a\x01+Google|dfa4ab4b-9dc4-454e-8065-e70c733fa53f\xa2\x01\x0e105.235.139.91\xaa\x01\x02'
         binary_tail = b'\xb2\x01 1d8ec0240ede109973f3321b9354b44d\xba\x01\x014\xc2\x01\x08Handheld\xca\x01\x10Asus ASUS_I005DA\xea\x01@afcfbf13334be42036e4f742c80b956344bed760ac91b3aff9b607a610ab4390\xf0\x01\x01\xca\x02\nATM Mobils\xd2\x02\x04WIFI\xca\x03 7428b253defc164018c604a1ebbfebdf\xe0\x03\xa8\x81\x02\xe8\x03\xf6\xe5\x01\xf0\x03\xaf\x13\xf8\x03\x84\x07\x80\x04\xe7\xf0\x01\x88\x04\xa8\x81\x02\x90\x04\xe7\xf0\x01\x98\x04\xa8\x81\x02\xc8\x04\x01\xd2\x04=/data/app/com.dts.freefireth-PdeDnOilCSFn37p1AH_FLg==/lib/arm\xe0\x04\x01\xea\x04_2087f61c19f57f2af4e7feff0b24d9d9|/data/app/com.dts.freefireth-PdeDnOilCSFn37p1AH_FLg==/base.apk\xf0\x04\x03\xf8\x04\x01\x8a\x05\x0232\x9a\x05\n2019119621\xb2\x05\tOpenGLES2\xb8\x05\xff\x7f\xc0\x05\x04\xe0\x05\xf3F\xea\x05\x07android\xf2\x05pKqsHT5ZLWrYljNb5Vqh//yFRlaPHSO9NWSQsVvOmdhEEn7W+VHNUK+Q+fduA3ptNrGB0Ll0LRz3WW0jOwesLj6aiU7sZ40p8BfUE/FI/jzSTwRe2\xf8\x05\xfb\xe4\x06\x88\x06\x01\x90\x06\x01\x9a\x06\x014\xa2\x06\x014\xb2\x06"GQ@O\x00\x0e^\x00D\x06UA\x0ePM\r\x13hZ\x07T\x06\x0cm\\V\x0ejYV;\x0bU5'
@@ -210,7 +210,7 @@ async def create_jwt():
     body = json.dumps({"open_id": open_id, "open_id_type": "4", "login_token": token_val, "orign_platform_type": "4"})
     proto_bytes = await json_to_proto(body, FreeFire_pb2.LoginReq())
     payload = aes_cbc_encrypt(Config.MAIN_KEY, Config.MAIN_IV, proto_bytes)
-    url = "https://loginbp.ggblueshark.com/MajorLogin"
+    url = "https://loginbp.ggpolarbear.com/MajorLogin"
     headers = {
         'User-Agent': Config.USER_AGENT, 
         'Connection': "Keep-Alive", 
