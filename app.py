@@ -40,7 +40,7 @@ class Config:
         "BD": {"uid": "4343645299", "password": "C5C216587364AD7247730F433CABA4A5C91C6889BCCC2A4D8105E3D7297B5CE2"}
     }
     REGION_API_ENDPOINTS = {
-        "BD": "https://clientbp.ggpolarbear.com/GetWishListItems"
+        "BD": "https://clientbp.ppmainecoonghj.com/GetWishListItems"
     }
     ACCOUNTS = {
         "BD": "uid=4343645299&password=C5C216587364AD7247730F433CABA4A5C91C6889BCCC2A4D8105E3D7297B5CE2"
