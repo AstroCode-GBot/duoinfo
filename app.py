@@ -37,13 +37,13 @@ class Config:
     USER_AGENT = f"Dalvik/2.1.0 (Linux; U; {ANDROID_OS_VERSION}; {USER_AGENT_MODEL} Build/RKQ1.211119.001)"
     REGION_LANG = {"BD": "bn"}
     BOT_CREDENTIALS = {
-        "BD": {"uid": "7564541120", "password": "EFB085D15D98F234350DD52B01311183D872E9B89E1593C796584C33C9413F6A"}
+        "BD": {"uid": "8419939141", "password": "telegram@raigenffofc-7gg5wm"}
     }
     REGION_API_ENDPOINTS = {
         "BD": "https://clientbp.ppmainecoonghj.com/GetWishListItems"
     }
     ACCOUNTS = {
-        "BD": "uid=7564541120&password=EFB085D15D98F234350DD52B01311183D872E9B89E1593C796584C33C9413F6A"
+        "BD": "uid=8419939141&password=telegram@raigenffofc-7gg5wm"
     }
 
     @staticmethod
@@ -191,7 +191,7 @@ async def fetch_duo_info(uid):
     return None
 
 async def get_access_token(account: str):
-    url = "https://ffmconnect.live.gop.garenanow.com/oauth/guest/token/grant"
+    url = "https://100067.connect.garena.com/oauth/guest/token/grant"
     payload = account + "&response_type=token&client_type=2&client_secret=2ee44819e9b4598845141067b281621874d0d5d7af9d8f7e00c1e54715b7d1e3&client_id=100067"
     headers = {
         'User-Agent': Config.USER_AGENT, 
